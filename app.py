@@ -1,6 +1,8 @@
+import os
+from dotenv import load_dotenv
 import streamlit as st
 import google.generativeai as genai
-
+from retriever import get_relevant_course_context
 genai.configure(api_key="API KEY WOULD BE HERE")
 generation_config = genai.GenerationConfig(temperature=0.0)
 model = genai.GenerativeModel('gemini-2.5-flash', generation_config=generation_config)
@@ -18,7 +20,7 @@ if prompt:
   with st.chat_message("assistant"):
         with st.spinner("Searching course documents..."):
 
-          retrieved_context = mock_get_context(prompt)
+          retrieved_context = get_relevant_context(prompt)
           strict_prompt = f"""
             You are a strict teaching assistant for a 3rd-semester computer science course.
             Answer the user's question using ONLY the provided context. 
