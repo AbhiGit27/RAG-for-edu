@@ -29,7 +29,7 @@ if prompt:
             User Question: {prompt}
             """ 
           try:
-            response = mode.generate_content(strict_prompt)
+            response = model.generate_content(strict_prompt)
             st.write(response.text)
           except Exception as e:
             st.error(f"Error connecting to gemini: {e}")
