@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 genai.configure(api_key="API KEY WOULD BE HERE")
 generation_config = genai.GenerationConfig(temperature=0.0)
-model = genai.GenerativeModel('gemini-1.5-flash', generation_config=generation_config)
+model = genai.GenerativeModel('gemini-2.5-flash', generation_config=generation_config)
 
 def mock_get_context():
   return "Deadlock in an OS occurs when a process enters a waiting state because a requested system resource is held by another waiting process."
